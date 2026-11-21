@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUp, Download, Github, Linkedin, Menu, Moon, SquareTerminal, Sun, X } from 'lucide-react'
 import { profile } from '@/data/profile.mjs'
+import { withBasePath } from '@/data/site.mjs'
 import { ExternalLink } from './ui'
 import styles from '@/styles/Layout.module.css'
 
@@ -13,7 +14,7 @@ const navigation = [
 ]
 
 export function ResumeLink({ className = 'button button-secondary', label = 'Download Resume' }) {
-  return <a href={profile.resume} download className={className} title="Portfolio résumé based on supplied CV details"><Download size={17} aria-hidden="true" />{label}</a>
+  return <a href={withBasePath(profile.resume)} download className={className} title="Portfolio résumé based on supplied CV details"><Download size={17} aria-hidden="true" />{label}</a>
 }
 
 export function SocialLinks() {

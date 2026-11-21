@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import { profile } from '@/data/profile.mjs'
-import { getSiteOrigin } from '@/data/site.mjs'
+import { projectPath, siteUrl } from '@/data/site.mjs'
 
-const origin = getSiteOrigin()
-const personId = origin ? origin + '/#ziad-hatem' : undefined
+const personId = siteUrl('/#ziad-hatem')
 
 const person = {
   '@type': 'Person',
@@ -14,24 +13,22 @@ const person = {
   description: profile.headline,
   address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' },
   sameAs: [profile.github, profile.linkedin],
-  url: origin ? origin + '/' : undefined,
+  url: siteUrl('/'),
 }
 
 export default function Seo({ project }) {
   const title = project ? project.name + ' Case Study | ' + profile.name : profile.name + ' | ' + profile.title
   const description = project ? project.summary : profile.introduction
-  const path = project ? '/projects/' + project.slug : '/'
-  const canonical = origin ? origin + path : undefined
-  const imagePath = project ? project.cover : '/media/portfolio-preview.jpg'
-  const image = origin ? origin + imagePath : imagePath
+  const canonical = siteUrl(project ? projectPath(project.slug) : '/')
+  const image = siteUrl(project ? project.cover : '/media/portfolio-preview.jpg')
   const imageAlt = project ? project.coverAlt : 'Ziad Hatem, Backend & Full Stack Developer'
   const structured = project ? {
     '@type': 'CreativeWork',
     name: project.name + ' Case Study',
     description,
     url: canonical,
-    image: origin ? image : undefined,
-    author: personId ? { '@id': personId } : person,
+    image,
+    author: { '@id': personId },
     about: { '@type': 'Thing', name: project.name, url: project.url },
   } : person
 
@@ -51,8 +48,8 @@ export default function Seo({ project }) {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={imageAlt} />
-      {canonical && <link rel="canonical" href={canonical} />}
-      {canonical && <meta property="og:url" content={canonical} />}
+      <link rel="canonical" href={canonical} />
+      <meta property="og:url" content={canonical} />
       <script type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...structured }).replace(/</g, '\\u003c') }} />
     </Head>

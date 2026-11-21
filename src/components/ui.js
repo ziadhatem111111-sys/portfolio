@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
+import { withBasePath } from '@/data/site.mjs'
 import {
   Activity, ArrowUpRight, Award, Braces, BriefcaseBusiness, CodeXml, CreditCard,
   Database, GraduationCap, Layers3, MapPin, PanelsTopLeft, Search, Server,
@@ -56,7 +57,7 @@ export function ExternalLink({ href, children, className = 'text-link', icon = t
 export function ProjectCover({ project, priority = false, className, linked = false }) {
   const image = (
     <div className="cover-image">
-      <Image src={project.cover} alt={project.coverAlt} fill priority={priority}
+      <Image src={withBasePath(project.cover)} alt={project.coverAlt} fill priority={priority}
         sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px" />
     </div>
   )

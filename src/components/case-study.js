@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { withBasePath } from '@/data/site.mjs'
 import { ExternalLink, Icon, ProjectCover, Reveal, SectionHeading, Tags } from './ui'
 import styles from '@/styles/CaseStudy.module.css'
 
@@ -122,7 +123,7 @@ function Gallery({ project }) {
         <figure className={styles.gallery} data-project={project.slug}>
           <div>
             {project.gallery.map(({ src, alt, width, height }) => (
-              <Image key={src} src={src} alt={alt} width={width} height={height}
+              <Image key={src} src={withBasePath(src)} alt={alt} width={width} height={height}
                 sizes={project.slug === 'shoezy'
                   ? width > 500 ? '(max-width: 470px) 86vw, 70vw' : '(max-width: 470px) 245px, 27vw'
                   : '(max-width: 650px) 29vw, 258px'} />

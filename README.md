@@ -1,6 +1,6 @@
 # Ziad Hatem · Developer Portfolio
 
-A Next.js portfolio for Ziad Hatem, a backend and full stack developer based in Cairo. The two featured case studies are [ShineUp](/projects/shineup) and [Shoezy](/projects/shoezy).
+A Next.js portfolio for Ziad Hatem, a backend and full stack developer based in Cairo. The two featured case studies are [ShineUp](https://ziadhatem111111-sys.github.io/portfolio/projects/shineup/) and [Shoezy](https://ziadhatem111111-sys.github.io/portfolio/projects/shoezy/).
 
 ## Run locally
 
@@ -11,15 +11,20 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000). To verify and run the production build:
+Open [localhost:3000/portfolio/](http://localhost:3000/portfolio/). To verify and build the static site:
 
 ```sh
 npm run lint
 npm run build
-npm run start
 ```
 
-For a public deployment, set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin before building. This enables canonical URLs, absolute social-preview URLs, and the sitemap advertised by `/robots.txt`.
+The production build writes the static site to `out/` for hosting at `/portfolio/`. The public origin and base path live in [site.mjs](src/data/site.mjs). The build also generates the sitemap, robots file, and `.nojekyll`.
+
+Search crawlers look for `robots.txt` at the domain root. Submit the [project sitemap](https://ziadhatem111111-sys.github.io/portfolio/sitemap.xml) directly or reference it from the domain-root robots file if you manage that site.
+
+## Deploy to GitHub Pages
+
+In the repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The [deployment workflow](.github/workflows/deploy.yml) runs on pushes to `main` and can also run manually from the Actions tab. It installs locked dependencies, runs lint and the build, and publishes `out/` to [the portfolio URL](https://ziadhatem111111-sys.github.io/portfolio/).
 
 ## Starter audit
 

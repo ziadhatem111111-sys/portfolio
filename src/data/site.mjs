@@ -1,12 +1,14 @@
-const configuredOrigin = process.env.NEXT_PUBLIC_SITE_URL
+export const basePath = '/portfolio'
+const siteOrigin = 'https://ziadhatem111111-sys.github.io'
 
-export function getSiteOrigin() {
-  if (!configuredOrigin) return undefined
-  try {
-    const parsed = new URL(configuredOrigin)
-    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') return parsed.origin
-  } catch {
-    return undefined
-  }
-  return undefined
+export function withBasePath(path) {
+  return basePath + path
+}
+
+export function siteUrl(path) {
+  return siteOrigin + withBasePath(path)
+}
+
+export function projectPath(slug) {
+  return '/projects/' + slug + '/'
 }
