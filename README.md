@@ -1,52 +1,41 @@
-# Next.Js Website Tutorial: Create a Stunning Portfolio Website with Nextjs, Tailwind CSS and Framer-motion🌟
+# Ziad Hatem · Developer Portfolio
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/Next.js-Developer-Portfolio-Starter-Code?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/Next.js-Developer-Portfolio-Starter-Code?style=social&logo=KashFlow&maxAge=3600)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+A Next.js portfolio for Ziad Hatem, a backend and full stack developer based in Cairo. The two featured case studies are [ShineUp](/projects/shineup) and [Shoezy](/projects/shoezy).
 
-This repository contains starter code for Portfolio website created using NextJs. <br />
+## Run locally
 
-For Demo and Final Code checkout following link👇: <br />
-[Nextjs Portfolio Website](https://devdreaming.com//videos/nextjs-tutorial-build-portfolio-tailwind-css-framer-motion#code-links) <br />
+Use Node.js 20 or newer. The lockfile pins the dependencies used for this implementation.
 
-If you want to learn how to create it please follow below tutorial👇: <br />
-https://youtu.be/Yw7yWHigGKI <br />
-[![YouTube Video Views](https://img.shields.io/youtube/views/Yw7yWHigGKI?style=social)](https://youtu.be/Yw7yWHigGKI)<br />
+```sh
+npm ci
+npm run dev
+```
 
----
+Open [localhost:3000](http://localhost:3000). To verify and run the production build:
 
+```sh
+npm run lint
+npm run build
+npm run start
+```
 
----
+For a public deployment, set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin before building. This enables canonical URLs, absolute social-preview URLs, and the sitemap advertised by `/robots.txt`.
 
-### Images of The Portfolio Website:
+## Starter audit
 
-![Nextjs Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/home-light-desktop.png)
-![Nextjs Portfolio Website Dark Mode](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/home-dark-desktop.png)
-![Next.js Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/about-light-desktop.png)
-![Next js Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/projects-dark-desktop.png)
-![Portfolio Website In Next.js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/articles-light-desktop.png)
-![Responsive Portfolio Website In Nextjs](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/about-light-mobile.png)
-![Responsive Portfolio Website In Next js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/projects-light-mobile.png)
-![Mobile Responsive Portfolio Website In Next.js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/articles-light-mobile.png)
+The workspace already contained the unpacked starter. It used the Pages Router and CSS Modules, with Framer Motion installed and no Tailwind dependency. It served the stock Next.js homepage and example API route, with tutorial content, unrelated project and portrait images, and a dummy PDF in public assets.
 
+## Implementation plan
 
-### Resources Used in This Project
+1. Retain the Pages Router and CSS Modules. Build a reusable layout, responsive section navigation, and persistent theme controls.
+2. Centralize profile and project content. Lead the home page with the engineering diagram and the two flagship projects, then add experience, supporting work, and contact.
+3. Prerender both case studies. Explain product context and engineering work, add conceptual diagrams, and cite the public product screenshots.
+4. Remove starter content, add portfolio metadata and a PDF download, and verify the production build, lint, and browser interactions.
 
-- Profile image in the home page created by using https://www.midjourney.com/ tool.
-- Profile image in the about page by [Albert Dera](https://unsplash.com/@albertdera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) 
-on [Unsplash](https://unsplash.com/photos/ILip77SbmOE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
-- Fonts from https://fonts.google.com/ <br />
-- Icons from https://iconify.design/ <br />
-- LightBulb Svg from https://lukaszadam.com/illustrations <br />
+## Edit content
 
-### External Libraries used in this project:
+- [Profile data](src/data/profile.mjs) contains identity, contact details, skills, experience, and credentials.
+- [Project data](src/data/projects.mjs) contains both case studies and supporting projects. Fill Shoezy’s technology and contribution fields after verifying them from the project source or documentation.
+- [Résumé PDF](public/ziad-hatem-resume.pdf) is a one-page portfolio adaptation of the CV facts supplied in the brief. Replace the file with the original reviewed CV when it is available, or update the file path in the profile data.
 
-- [framer-motion](https://www.framer.com/motion/) <br />
-- [Tailwind css](https://tailwindcss.com/) <br />
-
-
-## Other projects
-
-From the creator: [SmartHeadshots AI — AI headshot generator](https://www.smartheadshots.ai/).
-
-I also built [AI Room Design, an AI room design app](https://www.airoomdesignapp.com).
+The featured project covers are concept imagery. The case-study galleries use [ShineUp’s public App Store screenshots](https://apps.apple.com/sa/app/id6792269696) and desktop and mobile captures of [Shoezy’s public catalog](https://shoezy.store/products).

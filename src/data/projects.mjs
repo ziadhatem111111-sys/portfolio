@@ -1,0 +1,108 @@
+import { shineupExperience } from './profile.mjs'
+
+export const featuredProjects = [
+  {
+    slug: 'shineup',
+    name: 'ShineUp',
+    type: 'Marketplace',
+    category: 'On-demand car-care marketplace',
+    role: 'Backend Developer',
+    period: shineupExperience.period,
+    location: 'Saudi Arabia',
+    url: 'https://shineupapp.com/',
+    summary: 'A Saudi marketplace connecting vehicle owners with car-care providers, from finding a nearby service to booking, paying, and tracking its progress.',
+    contribution: 'Backend development across booking workflows, Moyasar payments, and real-time functionality.',
+    cover: '/media/shineup-cover.webp',
+    coverAlt: 'Dark sports sedan in a blue-lit detailing studio',
+    focus: ['Booking APIs', 'Payments', 'Real-time updates'],
+    cardStack: ['NestJS', 'PostgreSQL', 'Redis', 'Socket.IO'],
+    stack: shineupExperience.stack,
+    contributions: shineupExperience.contributions,
+    context: 'ShineUp brings car care, detailing, and maintenance into one marketplace for vehicle owners and service providers in Saudi Arabia.',
+    problem: 'Customers need to find available providers and understand what happens after they book. Providers need to keep schedules, pricing, job progress, and payments in sync as requests move through their teams.',
+    solution: 'The platform combines location-based discovery and on-demand or scheduled bookings with integrated payments and real-time service updates. Providers can manage service offerings and jobs in a companion experience.',
+    capabilities: [
+      { title: 'Customer experience', icon: 'map', items: ['Nearby provider discovery on a live map', 'Service browsing and price comparison', 'ASAP and scheduled bookings', 'Saved vehicles and addresses', 'Booking status and provider location tracking', 'Electronic payments and in-app messaging', 'Reviews, ratings, and push notifications', 'Loyalty rewards, packages, and subscriptions'] },
+      { title: 'Provider experience', icon: 'briefcase', items: ['Onboarding and business profiles', 'Booking requests and job status management', 'Service catalogs and vehicle-specific pricing', 'Working schedules and availability', 'Customer messaging', 'Earnings, wallets, and bank withdrawals', 'Business and operations dashboards'] },
+      { title: 'Platform operations', icon: 'panels', items: ['Booking and service management', 'Pricing and availability controls', 'Provider and team management', 'Operational reporting', 'Financial and administrative workflows'] },
+    ],
+    architecture: {
+      title: 'Backend architecture',
+      description: 'A conceptual view of how the documented technologies support REST APIs, persistence, payments, background work, and client updates.',
+      hub: { title: 'NestJS services', detail: 'REST APIs and domain logic', icon: 'server' },
+      branches: [
+        { title: 'Prisma + PostgreSQL', detail: 'Relational records', icon: 'database' },
+        { title: 'Moyasar', detail: 'Payment processing', icon: 'credit' },
+        { title: 'Redis + BullMQ', detail: 'Asynchronous work', icon: 'layers' },
+        { title: 'Socket.IO / WebSockets', detail: 'Client status updates', icon: 'activity' },
+      ],
+    },
+    flow: { title: 'Booking and payment flow', label: 'Conceptual workflow', steps: ['Service request', 'Booking API', 'Domain validation and persistence', 'Moyasar payment', 'Real-time status update'] },
+    considerations: [
+      { title: 'Booking and payment states', detail: 'A booking and its payment can progress at different speeds. Clear state transitions help clients show accurate information while payment confirmation is pending.' },
+      { title: 'Real-time communication', detail: 'Live events help clients follow a booking as it changes. Reconnecting clients also need a way to recover the current state when they miss an update.' },
+      { title: 'Reliability and testing', detail: 'Retries and duplicate events are important cases to exercise when testing payments and background jobs. Validation and reproducible debugging support safer changes to these workflows.' },
+    ],
+    result: 'ShineUp is available as a commercial car-care marketplace. My ongoing backend work focuses on the services that connect discovery, bookings, payments, and live status updates.',
+    source: { label: 'ShineUp on the App Store', url: 'https://apps.apple.com/sa/app/id6792269696' },
+    gallery: [
+      { src: '/media/shineup-app-1.webp', alt: 'ShineUp customer app splash screen', width: 460, height: 996 },
+      { src: '/media/shineup-app-2.webp', alt: 'ShineUp onboarding screen showing a vehicle being washed', width: 460, height: 996 },
+      { src: '/media/shineup-app-3.webp', alt: 'ShineUp customer app showing its interactive discovery map', width: 460, height: 996 },
+    ],
+  },
+  {
+    slug: 'shoezy',
+    name: 'Shoezy',
+    type: 'E-commerce',
+    category: 'Footwear e-commerce platform',
+    role: 'E-commerce development',
+    url: 'https://shoezy.store/',
+    summary: 'A commercial footwear storefront built around curated collections, structured product discovery, product variations, and Cash on Delivery.',
+    contribution: 'E-commerce development. Specific responsibilities are pending confirmation.',
+    cover: '/media/shoezy-cover.webp',
+    coverAlt: 'Cream and burgundy sneaker over warm architectural plinths',
+    focus: ['Product discovery', 'Size and color variants', 'Cash on Delivery'],
+    cardStack: [],
+    stack: [],
+    contributions: [],
+    context: 'Shoezy is a commercial online footwear store where shoppers can browse collections and compare products before adding a preferred variation to their bag.',
+    problem: 'A footwear catalog needs to help people narrow their options quickly. Product information has to stay easy to scan as shoppers compare sizes, colors, prices, and availability.',
+    solution: 'The storefront groups products into collections and offers search and filtering. Product pages bring together imagery, variations, and purchase information, with Cash on Delivery advertised as the payment method.',
+    capabilities: [
+      { title: 'Catalog and discovery', icon: 'search', items: ['Product catalog and featured collections', 'Best Sellers, New Arrivals, and Trending collections', 'Product search, sorting, and paginated listings', 'Filters for category, brand, collection, color, price, and stock'] },
+      { title: 'Product details', icon: 'panels', items: ['Product pages with multiple images', 'Color variations and shoe-size selection', 'Pricing and availability information', 'Add-to-bag interface', 'Ratings, reviews, and verified-purchase eligibility', 'Related products area'] },
+      { title: 'Shopping and support', icon: 'bag', items: ['Shopping bag and advertised Cash on Delivery', 'Customer account and order-history entry points', 'Returns and exchanges information', 'Contact form and customer support links'] },
+    ],
+    flow: { title: 'Storefront shopping flow', label: 'Conceptual customer journey', steps: ['Browse catalog', 'Filter products', 'Choose size and color', 'Add to bag', 'Cash on Delivery offering'] },
+    considerations: [
+      { title: 'Product variation clarity', detail: 'A useful product page makes it clear which price, images, and availability apply to the currently selected size and color.' },
+      { title: 'Catalog navigation', detail: 'Keeping filter choices visible and easy to adjust helps shoppers refine results without losing their place in the catalog.' },
+      { title: 'Cash on Delivery expectations', detail: 'Making payment terms easy to find helps customers understand what to expect when an order arrives.' },
+    ],
+    result: 'The public storefront gives shoppers a way to explore collections, evaluate footwear options, and start a purchase through a shopping bag.',
+    source: { label: 'Shoezy public catalog', url: 'https://shoezy.store/products' },
+    gallery: [
+      { src: '/media/shoezy-desktop.jpg', alt: 'Shoezy desktop catalog showing filters, sorting, and footwear product cards', width: 1280, height: 840 },
+      { src: '/media/shoezy-mobile.jpg', alt: 'Shoezy mobile catalog with a filter button and two-column product grid', width: 412, height: 840 },
+    ],
+  },
+]
+
+export const supportingProjects = [
+  {
+    name: 'School Management System', type: 'Graduation project', icon: 'graduation',
+    summary: 'An administrative system for students, teachers, classes, subjects, departments, and users, with authentication, permissions, and relational data validation.',
+    stack: ['Laravel', 'PHP', 'MySQL', 'Blade', 'Bootstrap'],
+  },
+  {
+    name: 'E-Commerce Platform', type: 'Laravel / Livewire project', icon: 'bag',
+    summary: 'A shopping application with product and category management, cart, checkout, orders, authentication, and a Livewire-powered administration dashboard.',
+    stack: ['Laravel 10', 'Livewire 3', 'MySQL', 'Blade'],
+  },
+  {
+    name: 'Smart Metro Management System', type: 'MERN project', icon: 'train',
+    summary: 'Ticket management and role-based access, with JWT authentication, REST APIs, MongoDB data models, and a React dashboard.',
+    stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
+  },
+]
